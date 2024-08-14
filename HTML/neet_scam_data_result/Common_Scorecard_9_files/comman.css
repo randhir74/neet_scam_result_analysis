@@ -1,0 +1,196 @@
+.text-upper {
+    text-transform: uppercase
+}
+
+#yii-debug-toolbar {
+    display: none !important;
+}
+
+.astric-sign {
+    font-size: 15px;
+    color: red;
+}
+
+.astric-sign {
+    font-size: 15px;
+    color: red;
+}
+.activeR{
+    color:green !important;
+    font-weight:bold;
+}
+
+
+#mynavbar .navbar-nav .nav-link{
+    font-size: 15px;
+    color: rgb(255 255 255);
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+    font-weight: 500;
+}
+.nav-link1 {
+    font-weight:400;
+    letter-spacing:-.1px;
+    height:40px;
+    padding:0 10px;
+    display:flex;
+    align-items:center;
+    border-radius:5px;
+    white-space:nowrap;
+    margin-top:2px;
+    color:#262626;
+    border-bottom: dotted 1px #a1b1cb;
+}
+.nav-link1 svg {
+    flex-shrink:0;
+    width:20px;
+    height:20px;
+    margin-right:12px;
+    stroke-width:1.5px
+}
+.nav-link1:hover, .nav-link1:focus {
+    background-color: rgb(235 138 43);
+    color: #ffffff;
+}
+.nav-link1 span {
+transition:all .3s
+}
+.ugc-board {
+    font-family: 'Roboto', sans-serif;
+}
+.header-main {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.footer{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+.skin-dark .sub-link1{
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+}
+.ri-user-line, .ri-phone-line, .ri-bank-card-line, .ri-award-line, .ri-medal-2-line, .ri-gallery-upload-line, .ri-checkbox-circle-line{
+    margin-right: 4px !important;
+}
+.col-form-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px !important;
+}
+.card {
+    background-color: #fbfcfd;
+    border: none;
+}
+.navbar-nav{
+    margin-left: -10px;
+}
+/* label{font-weight:bold} */
+.loader {
+    background: rgb(255 255 255 / 80%) url(/<?=$baseurl?>/loader2.gif);
+    background-position: center;
+    background-size: 5%;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.name-caps {
+    text-transform: uppercase;
+}
+
+.help-block {
+    display: block;
+}
+
+.invalid-feedback {
+    display: block
+}
+
+.field-checkboxName {
+    margin-bottom: 0 !important
+}
+
+/* .field-checkboxName .form-check {
+    //padding-left: 0;
+} */
+.field-clarification {
+    margin-bottom: 0 !important
+}
+
+.field-clarification .form-check {
+    padding-left: 0;
+}
+#my-captcha-image-image img {
+    float: left;
+}
+
+.field-my-captcha-image a {
+    float: right;
+}
+
+.justify-content-center {
+    margin-bottom: 0px !important;
+}
+
+fieldset {
+    border: solid 1px #cdcdcd;
+    padding-top: 5px;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    padding-left: 12px;
+    }
+legend {
+    float: none;
+    width: inherit;
+}
+.tooltipmsg {
+    position: relative;
+    display: inline-block;
+   
+  }
+  
+  .tooltipmsg .tooltiptext {
+    visibility: hidden;
+    width: 170px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    border:solid 1px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -160px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltipmsg .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+  }
+  
+  .tooltipmsg:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  .swal2-styled.swal2-confirm{
+
+    background-color: #00a651!important;
+  }

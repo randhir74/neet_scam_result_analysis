@@ -1,0 +1,32 @@
+.fixed-plugin {
+    position: fixed;
+    top: 81px;
+    right: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 1031;
+    border-radius: 8px 0 0 8px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.fixed-plugin i {
+    color:#fff;
+    font-size: 1.5em;
+}
+
+.logout .text-decoration-none{
+    color: #12b95a;
+    font-weight: 600;
+    font-size: 13px;
+    border: none;
+    padding: 0;
+}
+
+.required-asterisk:after { content:"*"; color:red;}
+.bt-bgc{
+    background-color: #2040a0;
+}
+
+.head-color {
+    color: cornflowerblue;
+}

@@ -1,0 +1,90 @@
+@media (max-width:769px) and (min-width:300px) { 
+	.content-header #navbarSupportedContent{
+		display:none !important;
+	}
+	.content-header #navbarSupportedContent.show {
+		display: block !important;
+		position: absolute;
+		width: 90%;
+		top: 88px;
+		z-index: 99;
+		left: 0;
+		margin: 0 20px;
+		padding: 0;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		box-shadow: 0px 0px 25px #163d8d47;
+		background: #eb8a2b;
+	}
+	.content-header #navbarSupportedContent ul li a {
+		padding: 10px; 
+		color: #fff;
+	}
+	.content-header {
+		background: #FFF !important; 
+	}
+	.registration-main .content-body {
+		width: 100%; 
+	}
+	/* css for theme change ob 22/02/2023*/
+	.registration-main .content-header {
+		padding:15px 25px;
+	}
+	.registration-main .content-header img {
+		width: 239px;
+	}
+	.content-menu { 
+		float: right;
+	}
+	.header-main .text-end {
+		text-align:center !important;
+	}
+	.nta-logo, .ugc-logo {
+		width:150px;
+	}
+	.topnavigation .navbar-brand {
+		display:block;
+	}
+	.sidebar {
+		margin-left:-260px;
+	}
+	.sidebar-show .sidebar {
+		margin-left:0px;
+	}
+	.topnavigation #mynavbar {
+		padding-bottom:10px;
+	}
+	.topnavigation .navbar-toggler {
+		padding: 3px 5px;
+	}
+	.topnavigation  .navbar-toggler-icon { 
+		width: 1.1em;
+		height: 1em; 
+	}
+	.topnavigation.navbar-dark .navbar-toggler {
+		color: rgb(255 255 255);
+		border-color: rgb(255 255 255 / 0%);
+		padding: 0;
+	}
+	.topnavigation.navbar-dark .navbar-toggler:focus {
+		color: rgb(255 255 255 / 22%); 
+	}
+	h3.head {font-size:14px; margin: 5px 5px!important;}
+	h3.head1 {font-size:14px; margin: 9px 5px!important;}
+	.head img {width:17px; margin-right: 4px!important;}
+	.head1 img {width:22px;margin-left: 8px!important;}
+	.back { width:100%; }
+	/* End of css for theme change ob 22/02/2023*/
+	.navbar-dark .navbar-toggler-icon {
+            background:url(../../web/images/mobile-menu.png) no-repeat scroll 0 0 !important;
+            width: 27px;
+            height: 27px;
+	}
+	.login-right-section .col-form-label {
+		text-align:left !important;
+	}
+	.empity-cell {
+		display:none;
+	}
+	#registration-form .text-end {text-align: left !important;}
+}

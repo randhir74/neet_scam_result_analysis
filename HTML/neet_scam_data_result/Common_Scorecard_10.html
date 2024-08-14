@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://neet.ntaonline.in/frontend/web/common-scorecard/index -->
+<html lang="en-US" class="h-100"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="https://neet.ntaonline.in/frontend/web/images/nta-logo.png">
+        <title>Common Scorecard</title>
+    <meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="ohH4noVncmZO_PFOfXP5FhVCSYAelinUxRxE46P582vEWons6wY7EySYxBoUK4AhXxgI2inXcJL2ZCCNkI-UAw==">
+
+<link href="./Common_Scorecard_10_files/simple-loading.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/bootstrap.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/demo.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/smart_wizard_all.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/bootstrap.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/bootstrap-grid.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/bootstrap-utilities.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/remixicon.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/style.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/responsive.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/responsive.bootstrap4.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/buttons.bootstrap4.min.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/comman.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/jquery.multiselect.css" rel="stylesheet">
+<link href="./Common_Scorecard_10_files/sweetalert.min.css" rel="stylesheet">    <style>
+        .loader {
+            background: rgb(255 255 255 / 80%) url(/frontend/web/loader2.gif);
+            background-position: center;
+            background-size: 5%;
+            background-repeat: no-repeat;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .activeR {
+            color: green !important;
+            font-weight: bold;
+        }
+
+
+
+        #mynavbar .navbar-nav .nav-link {
+            font-size: 15px;
+            color: rgb(255 255 255);
+            padding-right: 0.9rem;
+            padding-left: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-link1 {
+            font-weight: 400;
+            letter-spacing: -.1px;
+            height: 40px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            white-space: nowrap;
+            margin-top: 2px;
+            color: #262626;
+            border-bottom: dotted 1px #a1b1cb;
+        }
+
+        .nav-link1 svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            stroke-width: 1.5px
+        }
+
+        .nav-link1:hover,
+        .nav-link1:focus {
+            background-color: rgb(235 138 43);
+            color: #ffffff;
+        }
+
+        .nav-link1 span {
+            transition: all .3s
+        }
+
+        .ugc-board {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header-main {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .footer {
+            margin-right: 0px !important;
+            margin-left: 0px !important;
+        }
+
+        .skin-dark .sub-link1 {
+            font-family: 'Roboto', sans-serif !important;
+            font-size: 14px !important;
+        }
+
+        .ri-user-line,
+        .ri-phone-line,
+        .ri-bank-card-line,
+        .ri-award-line,
+        .ri-medal-2-line,
+        .ri-gallery-upload-line,
+        .ri-checkbox-circle-line {
+            margin-right: 4px !important;
+        }
+
+        .col-form-label {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px !important;
+        }
+
+        .card {
+            background-color: #fbfcfd;
+            border: none;
+        }
+
+        .navbar-nav {
+            margin-left: -10px;
+        }
+
+        .blink_me {
+            animation: blinker 4s linear infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* label{font-weight:bold} */
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+
+        .dropdown>.dropdown-toggle:active {
+            /*Without this, clicking will make it sticky*/
+            pointer-events: none;
+        }
+    </style>
+    <link href="./Common_Scorecard_10_files/font-awesome.min.css" rel="stylesheet">
+    <script src="./Common_Scorecard_10_files/jquery.min.js"></script>
+<style>.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row;padding:0}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;padding:0;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em;padding:0}.swal2-popup.swal2-toast .swal2-styled{margin:.125em .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(100,150,200,.5)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:5px;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center;padding:0 1.8em}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0;padding:0 1.6em}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-loader{display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 transparent #2778c4 transparent}.swal2-styled{margin:.3125em;padding:.625em 1.1em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#2778c4;color:#fff;font-size:1.0625em}.swal2-styled.swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#d14529;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#757575;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:5px;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close:focus{outline:0;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0 1.6em;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-input-label{display:flex;justify-content:center;margin:1em auto}.swal2-validation-message{align-items:center;justify-content:center;margin:0 -2.7em;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}</style></head>
+
+<body class="skin-dark animate">
+    <div class="loader" style="display:none;"></div>
+                    <div class="registration-main">
+            <div class="header-main navbar navbar-expand-md navbar-light bg-light row">
+                <div class="col-sm-4"> <a href="https://www.education.gov.in/" target="_blank"><img class="dept-higher-edu-logo img-fluid" src="./Common_Scorecard_10_files/left.jpg" alt=""></a> </div>
+                 <div class="col-sm-4 text-center custom-text-logo"> राष्ट्रीय पात्रता सह प्रवेश परीक्षा (स्नातक) - 2024 <br> NATIONAL ELIGIBILITY CUM ENTRANCE TEST (UG) - 2024 </div>
+                <div class="col-sm-4 text-end"> <a href="https://www.nta.ac.in/" target="_blank"><img class="nta-logo img-fluid" src="./Common_Scorecard_10_files/nta-logo-new.png" alt=""></a> </div>
+            </div>
+
+            <nav class="navbar navbar-expand-sm navbar-dark topnavigation">
+                <div class="container-fluid">
+                    <a class="navbar-brand test-for" href="javascript:void(0)">NEET (UG) – 2024</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar"> <span class="navbar-toggler-icon"></span> </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"> <a class="nav-link " href="https://neet.ntaonline.in/frontend/web/site/login"><i class="ri-home-8-line"></i> Home</a> </li>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle nav-link" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+                                    Information Bulletin
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="https://exams.nta.ac.in/NEET/images/neet-ug-2024-draft-ib-09022024.pdf" target="_blank">Information Bulletin (Hindi)</a></li>
+                                    <li><a class="dropdown-item" href="https://exams.nta.ac.in/NEET/images/neet-ug-2024-draft-ib-09022024.pdf" target="_blank">Information Bulletin (English)</a></li>
+                                </ul>
+                            </div>
+                            <li class="nav-item">
+                                <a class="nav-link userActivityBtn" href="https://neet.ntaonline.in/frontend/web/contactus/index"><i class="ri-question-answer-line"></i> Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="content-body">
+            <style>
+    .disabled-btn {
+        opacity: 0.6;
+        cursor: not-allowed !important;
+    }
+    div.dataTables_wrapper div.dataTables_filter input{
+        width: 330px!important;
+    }
+    #scorecardData_filter{
+        display:none;
+    }
+ 
+</style>
+
+<link href="./Common_Scorecard_10_files/dataTables.bootstrap5.css" rel="stylesheet">
+<!-- <link href="https://cdn.datatables.net/2.1.0/css/dataTables.dataTables.min.css" rel="stylesheet" > -->
+
+<div class="card card-white mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between right-field">
+        
+            <div class="row col-sm-12">
+                <div class="col-sm-3" style="font-weight:bold;">NEET (UG) Result 2024 City/Centre Wise</div>
+                <div class="col-sm-3 float-end d-flex align-items-end justify-content-end">
+                    <div class="col-sm-5 form-control-sm" style="padding-top: 7px;text-align: right;font-weight:bold">State/Outside India : </div>
+                    <select class="col-sm-7 form-control form-control-sm filterByStatus11" id="GetfilterState">
+                        <option value="">-----Select State/Outside India-----</option> 
+                                           
+                        <option value="ANDAMAN AND NICOBAR ISLANDS (UT)">ANDAMAN AND NICOBAR ISLANDS (UT)</option>
+                                           
+                        <option value="ANDHRA PRADESH">ANDHRA PRADESH</option>
+                                           
+                        <option value="ARUNACHAL PRADESH">ARUNACHAL PRADESH</option>
+                                           
+                        <option value="ASSAM">ASSAM</option>
+                                           
+                        <option value="BIHAR">BIHAR</option>
+                                           
+                        <option value="CHANDIGARH(UT)">CHANDIGARH(UT)</option>
+                                           
+                        <option value="CHHATTISGARH">CHHATTISGARH</option>
+                                           
+                        <option value="DADRA AND NAGAR HAVELI (UT)">DADRA AND NAGAR HAVELI (UT)</option>
+                                           
+                        <option value="DAMAN AND DIU (UT)">DAMAN AND DIU (UT)</option>
+                                           
+                        <option value="DELHI">DELHI</option>
+                                           
+                        <option value="GOA">GOA</option>
+                                           
+                        <option value="GUJARAT">GUJARAT</option>
+                                           
+                        <option value="HARYANA">HARYANA</option>
+                                           
+                        <option value="HIMACHAL PRADESH">HIMACHAL PRADESH</option>
+                                           
+                        <option value="JAMMU AND KASHMIR">JAMMU AND KASHMIR</option>
+                                           
+                        <option value="JHARKHAND">JHARKHAND</option>
+                                           
+                        <option value="KARNATAKA">KARNATAKA</option>
+                                           
+                        <option value="KERALA">KERALA</option>
+                                           
+                        <option value="LADAKH(UT)">LADAKH(UT)</option>
+                                           
+                        <option value="LAKSHADWEEP (UT)">LAKSHADWEEP (UT)</option>
+                                           
+                        <option value="MADHYA PRADESH">MADHYA PRADESH</option>
+                                           
+                        <option value="MAHARASHTRA">MAHARASHTRA</option>
+                                           
+                        <option value="MANIPUR">MANIPUR</option>
+                                           
+                        <option value="MEGHALAYA">MEGHALAYA</option>
+                                           
+                        <option value="MIZORAM">MIZORAM</option>
+                                           
+                        <option value="NAGALAND">NAGALAND</option>
+                                           
+                        <option value="ODISHA">ODISHA</option>
+                                           
+                        <option value="OUTSIDE-INDIA">OUTSIDE-INDIA</option>
+                                           
+                        <option value="PUDUCHERRY(UT)">PUDUCHERRY(UT)</option>
+                                           
+                        <option value="PUNJAB">PUNJAB</option>
+                                           
+                        <option value="RAJASTHAN">RAJASTHAN</option>
+                                           
+                        <option value="SIKKIM">SIKKIM</option>
+                                           
+                        <option value="TAMIL NADU">TAMIL NADU</option>
+                                           
+                        <option value="TELANGANA">TELANGANA</option>
+                                           
+                        <option value="TRIPURA">TRIPURA</option>
+                                           
+                        <option value="UTTAR PRADESH">UTTAR PRADESH</option>
+                                           
+                        <option value="UTTARAKHAND">UTTARAKHAND</option>
+                                           
+                        <option value="WEST BENGAL">WEST BENGAL</option>
+                                            </select>
+                </div>
+                <div class="col-sm-3 float-end d-flex align-items-end justify-content-end">
+                    <div class="col-sm-5 form-control-sm" style="padding-top: 7px;text-align: right;font-weight:bold">City : </div>
+                    <select class="col-sm-7 form-control form-control-sm filterByStatus" id="GetfilterCity">
+                        <option value="">--Select City--</option>
+                    </select>
+                </div>
+                <div class="col-sm-6"></div>
+            </div>
+    </div>
+    <div class="card-body">
+           
+        <div class="tab-content">
+            <div id="scorecardData_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="scorecardData_length"><label>Show <select name="scorecardData_length" aria-controls="scorecardData" class="custom-select custom-select-sm form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option><option value="500">500</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="scorecardData_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="Search by any key" aria-controls="scorecardData"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="scorecardData" class="table table-striped dataTable no-footer" style="width: 100%;" aria-describedby="scorecardData_info">
+                <thead>
+                    <tr><th class="sorting sorting_asc" tabindex="0" aria-controls="scorecardData" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Sr.No.: activate to sort column descending" style="width: 107px;">Sr.No.</th><th class="sorting" tabindex="0" aria-controls="scorecardData" rowspan="1" colspan="1" aria-label="CENTER STATE: activate to sort column ascending" style="width: 446px;">CENTER STATE</th><th class="sorting" tabindex="0" aria-controls="scorecardData" rowspan="1" colspan="1" aria-label="CENTER CITY: activate to sort column ascending" style="width: 204px;">CENTER CITY</th><th class="sorting" tabindex="0" aria-controls="scorecardData" rowspan="1" colspan="1" aria-label="CENTER NAME: activate to sort column ascending" style="width: 204px;">CENTER NAME</th><th class="sorting" tabindex="0" aria-controls="scorecardData" rowspan="1" colspan="1" aria-label="CENTER NO.: activate to sort column ascending" style="width: 204px;">CENTER NO.</th><th class="sorting" tabindex="0" aria-controls="scorecardData" rowspan="1" colspan="1" aria-label="View Result: activate to sort column ascending" style="width: 373px;">View Result</th></tr>
+                </thead><tbody><tr class="odd"><td class="sorting_1">4501</td><td>UTTARAKHAND</td><td>HALDWANI</td><td>CYNTHIA SR. SEC. SCHOOL</td><td>450207</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450207.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4502</td><td>UTTARAKHAND</td><td>HALDWANI</td><td>UNIVERSAL CONVENT SENIOR SECONDARY SCHOOL</td><td>450208</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450208.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4503</td><td>UTTARAKHAND</td><td>ROORKEE</td><td>ANAND SWAROOP ARYA SARASWATI VIDYA MANDIR</td><td>450301</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450301.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4504</td><td>UTTARAKHAND</td><td>ROORKEE</td><td>SCHOLARS ACADEMY ROORKEE</td><td>450302</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450302.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4505</td><td>UTTARAKHAND</td><td>ROORKEE</td><td>GREENWAY MODERN SCHOOL</td><td>450303</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450303.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4506</td><td>UTTARAKHAND</td><td>ROORKEE</td><td>DOON PUBLIC SCHOOL</td><td>450304</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450304.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4507</td><td>UTTARAKHAND</td><td>ALMORA</td><td>BIPIN TRIPATHI KUMAON INSTITUTE OF TECHNOLOGY DWARAHAT</td><td>450401</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450401.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4508</td><td>UTTARAKHAND</td><td>ALMORA</td><td>ARMY PUBLIC SCHOOL RANIKHET</td><td>450402</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450402.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4509</td><td>UTTARAKHAND</td><td>HARIDWAR</td><td>COLLEGE OF ENGINEERING ROORKEE</td><td>450501</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450501.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4510</td><td>UTTARAKHAND</td><td>HARIDWAR</td><td>DIKSHA RISING STARS PUBLIC SCHOOL</td><td>450502</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450502.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4511</td><td>UTTARAKHAND</td><td>HARIDWAR</td><td>ACHIEVERS HOME PUBLIC SCHOOL</td><td>450503</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450503.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4512</td><td>UTTARAKHAND</td><td>HARIDWAR</td><td>SHIVEDALE PUBLIC SCHOOL</td><td>450504</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450504.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4513</td><td>UTTARAKHAND</td><td>HARIDWAR</td><td>MAA SARASWATI PUBLIC SR SEC SCHOOL</td><td>450505</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450505.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4514</td><td>UTTARAKHAND</td><td>HARIDWAR</td><td>THE WISDOM GLOBAL SCHOOL</td><td>450506</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450506.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4515</td><td>UTTARAKHAND</td><td>NAINITAL</td><td>MOHAN LAL SAH BAL VIDYA MANDIR PETERS FIELD MALLITAL NAINITAL.</td><td>450601</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450601.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4516</td><td>UTTARAKHAND</td><td>NEW TEHRI</td><td>NEW TEHRI INTERNATIONAL SCHOOL PAINULA</td><td>450701</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450701.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4517</td><td>UTTARAKHAND</td><td>PANTNAGAR</td><td>HIMALAYAN PROGRESSIVE SCHOOL</td><td>450801</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450801.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4518</td><td>UTTARAKHAND</td><td>PANTNAGAR</td><td>CAMPUS SCHOOL</td><td>450802</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450802.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4519</td><td>UTTARAKHAND</td><td>PAURI GARHWAL</td><td>G.B.PANT INSTITUTE OF ENGINEERING AND TECHNOLOGY, GHURDAURI PAURI GARHWAL</td><td>450901</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450901.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4520</td><td>UTTARAKHAND</td><td>PAURI GARHWAL</td><td>SHRI GURU RAM RAI PUBLIC SCHOOL SRINAGAR GARHWAL</td><td>450902</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/450902.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4521</td><td>UTTARAKHAND</td><td>UDHAM SINGH NAGAR</td><td>CHHAUNI CHILDREN''S ACADEMY</td><td>451001</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/451001.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4522</td><td>UTTARAKHAND</td><td>UDHAM SINGH NAGAR</td><td>ARMY PUBLIC SCHOOL HEMPUR</td><td>451002</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/451002.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4523</td><td>UTTARAKHAND</td><td>UDHAM SINGH NAGAR</td><td>LITTLE SCHOLARS KASHIPUR UDAMSINGH NAGAR</td><td>451003</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/451003.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4524</td><td>UTTARAKHAND</td><td>CHAMOLI</td><td>SHRI GURU RAM RAI PUBLIC SCHOOL</td><td>451101</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/451101.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4525</td><td>UTTARAKHAND</td><td>PITTHORAGARH</td><td>JB MEMORIAL MANAS ACADEMY</td><td>451201</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/451201.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4526</td><td>UTTARAKHAND</td><td>UTTARKASHI</td><td>SHRI GURU RAM RAI PUBLIC SCHOOL</td><td>451301</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/451301.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4527</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>ADAMAS UNIVERSITY</td><td>460101</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460101.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4528</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>STARLING INTERNATIONAL SCHOOL</td><td>460102</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460102.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4529</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>SUDHIR MEMORIAL INSTITUTE</td><td>460103</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460103.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4530</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>VIVEKANANDA COLLEGE</td><td>460104</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460104.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4531</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>GURUNANAK INSTITUTE OF PHARMACEUTICAL SCIENCE &amp; TECHNOLOGY</td><td>460105</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460105.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4532</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>REGENT EDUCATION AND RESEARCH FOUNDATION GROUP OF INSTITUTION</td><td>460106</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460106.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4533</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>KENDRIYA VIDYALAYA (AFS) BARRACKPORE</td><td>460107</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460107.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4534</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>BHOLANANDA NATIONAL VIDYALAYA</td><td>460108</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460108.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4535</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>ADAMAS WORLD SCHOOL BARRACKPORE RD 24PGS NR WB</td><td>460109</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460109.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4536</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>NARULA INSTITUTE OF TECHNOLOGY</td><td>460110</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460110.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4537</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>INFOCUS INDIA PUBLIC SCHOOL BARASAT</td><td>460111</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460111.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4538</td><td>WEST BENGAL</td><td>NORTH 24 PARGANAS</td><td>HARIYANA VIDYA MANDIR</td><td>460112</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460112.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4539</td><td>WEST BENGAL</td><td>ASANSOL</td><td>ASANSOL NORTH POINT SCHOOL</td><td>460201</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460201.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4540</td><td>WEST BENGAL</td><td>ASANSOL</td><td>INDIA INTERNATIONAL SCHOOL</td><td>460202</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460202.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4541</td><td>WEST BENGAL</td><td>ASANSOL</td><td>KENDRIYA VIDYALAYA ASANSOL</td><td>460203</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460203.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4542</td><td>WEST BENGAL</td><td>ASANSOL</td><td>BURNPUR RIVERSIDE SCHOOL CHITTARANJAN</td><td>460204</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460204.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4543</td><td>WEST BENGAL</td><td>ASANSOL</td><td>BURNPUR RIVERSIDE SCHOOL,BURNPUR</td><td>460205</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460205.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4544</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>MAGNUS GLOBAL SCHOOL SAKTIGARH BURDWAN WB</td><td>460301</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460301.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4545</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>SWAMI V ACADEMY FOR EDU EXC SRIPALLY BURDWAN WB</td><td>460302</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460302.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4546</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>KENDRIYA VIDYALAYA BURDWAN</td><td>460303</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460303.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4547</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>DELHI PUBLIC SCHOOL, BURDWAN</td><td>460304</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460304.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4548</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>K A S BERH HIGH SCHOOL</td><td>460305</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460305.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4549</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>KANCHANNAGAR D.N.DAS HIGH SCHOOL(H.S)</td><td>460306</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460306.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4550</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>MEMARI CRYSTAL MODEL SCHOOL</td><td>460307</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460307.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4551</td><td>WEST BENGAL</td><td>BURDWAN (BARDHAMAN)</td><td>BURDWAN MODEL SCHOOL</td><td>460308</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460308.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4552</td><td>WEST BENGAL</td><td>DURGAPUR</td><td>GURU TEG BAHADUR PUBLIC SCHOOL</td><td>460401</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460401.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4553</td><td>WEST BENGAL</td><td>DURGAPUR</td><td>HEM SHEELA MODEL SCHOOL</td><td>460402</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460402.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4554</td><td>WEST BENGAL</td><td>DURGAPUR</td><td>DURGAPUR PUBLIC SCHOOL</td><td>460403</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460403.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4555</td><td>WEST BENGAL</td><td>DURGAPUR</td><td>DAV MODEL SCHOOL</td><td>460404</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460404.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4556</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>MODERN INSTITUTE OF ENGINEERING &amp; TECHNOLOGY</td><td>460501</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460501.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4557</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>ARAMBAGH VIVEKANANDA ACADEMY ARAMBAGH HOOGHLY WB</td><td>460502</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460502.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4558</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>H.M.EDUCATION CENTRE</td><td>460503</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460503.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4559</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>TECHNO INDIA GROUP PUBLIC SCHOOL</td><td>460504</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460504.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4560</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>SUPREME KNOWLEDGE FOUNDATION GROUP OF INSTITUTIONS</td><td>460505</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460505.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4561</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>SWAMI VIVEKANANDA VIDYAMANDIR SINGUR HOOGHLY WB</td><td>460506</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460506.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4562</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>GENEX B.ED COLLEGE</td><td>460507</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460507.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4563</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>HOOGHLY ENGINEERING &amp; TECHNOLOGY COLLEGE</td><td>460508</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460508.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4564</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>SPARK SCHOOL MAHANAD POLBA HOOGHLY WB</td><td>460509</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460509.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4565</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>NARAYANA SCHOOL RISHRA</td><td>460510</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460510.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4566</td><td>WEST BENGAL</td><td>HOOGHLY</td><td>ADITYA BIRLA VANI BHARATI SCHOOL</td><td>460511</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460511.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4567</td><td>WEST BENGAL</td><td>HOWRAH</td><td>ASIAN INTERNATIONAL SCHOOL</td><td>460601</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460601.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4568</td><td>WEST BENGAL</td><td>HOWRAH</td><td>HOWRAH JOGESH CHANDRA GIRLS SCHOOL</td><td>460602</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460602.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4569</td><td>WEST BENGAL</td><td>HOWRAH</td><td>HOWRAH VIVEKANANDA INSTITUTION</td><td>460603</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460603.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4570</td><td>WEST BENGAL</td><td>HOWRAH</td><td>SRI RAMKRISHNA SIKSHALAYA HOWRAH</td><td>460604</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460604.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4571</td><td>WEST BENGAL</td><td>HOWRAH</td><td>BANTRA M.S.P.C HIGH SCHOOL</td><td>460605</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460605.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4572</td><td>WEST BENGAL</td><td>HOWRAH</td><td>SEACOM ENGINEERING COLLEGE</td><td>460606</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460606.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4573</td><td>WEST BENGAL</td><td>HOWRAH</td><td>GURU NANAK PUBLIC SCHOOL</td><td>460607</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460607.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4574</td><td>WEST BENGAL</td><td>HOWRAH</td><td>DIVINE MERCY SCHOOL</td><td>460608</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460608.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4575</td><td>WEST BENGAL</td><td>HOWRAH</td><td>KENDRIYA VIDYALAYA SANTRAGACHI</td><td>460609</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460609.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4576</td><td>WEST BENGAL</td><td>HOWRAH</td><td>ST. XAVIERS HIGH SCHOOL</td><td>460610</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460610.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4577</td><td>WEST BENGAL</td><td>HOWRAH</td><td>SIBPUR BHABANI BALIKA VIDYALAYA</td><td>460611</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460611.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4578</td><td>WEST BENGAL</td><td>HOWRAH</td><td>TARASUNDARI BALIKA VIDYABHABAN</td><td>460612</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460612.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4579</td><td>WEST BENGAL</td><td>HOWRAH</td><td>HOWRAH AKSHAYA SIKSHAYATAN</td><td>460613</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460613.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4580</td><td>WEST BENGAL</td><td>HOWRAH</td><td>DELHI PUBLIC SCHOOL DOMJUR AMTA ROAD HOWRAH WB</td><td>460614</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460614.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4581</td><td>WEST BENGAL</td><td>HOWRAH</td><td>P. P. MEMORIAL ACADEMY</td><td>460615</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460615.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4582</td><td>WEST BENGAL</td><td>HOWRAH</td><td>KENDRIYA VIDYALAYA BAMANGACHI</td><td>460616</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460616.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4583</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>HIJLI HIGH SCHOOL</td><td>460701</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460701.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4584</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>COLLEGIATE SCHOOL, MIDNAPUR</td><td>460702</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460702.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4585</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>RAJA NARENDRA LAL KHAN WOMEN''S COLLEGE (AUTONOMOUS)</td><td>460703</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460703.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4586</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>VIDYASAGAR SISHU NIKETAN HIGH SCHOOL</td><td>460704</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460704.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4587</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>DAV PUBLIC SCHOOL, MIDNAPORE</td><td>460705</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460705.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4588</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>RANGAMATI KIRONMOYEE HIGH SCHOOL (H.S)</td><td>460706</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460706.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4589</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>KENDRIYA VIDYALAYA NO.1 IIT KHARAGPUR</td><td>460707</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460707.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4590</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>KENDRIYA VIDYALAYA NO.1 KALAIKUNDA</td><td>460708</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460708.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4591</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>KHARAGPUR VISION ACADEMY</td><td>460709</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460709.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4592</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>ST AGNES SCHOOL</td><td>460710</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460710.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4593</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>KHARAGPUR TRIBAL PRIMARY TEACHERS? TRAINING INSTITUTE</td><td>460711</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460711.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4594</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>VIDYASAGAR VIDYAPITH MIDNAPORE (GOVERNMENT SPONSORED)</td><td>460712</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460712.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4595</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>DON BOSCO SCHOOL KHARAGPUR</td><td>460713</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460713.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4596</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>VIDYASAGAR VIDYAPITH GIRLS'' HIGH SCHOOL (H.S), MIDNAPORE</td><td>460714</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460714.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4597</td><td>WEST BENGAL</td><td>KHARAGPUR</td><td>DAV MODEL SCHOOL, IIT KHARAGPUR</td><td>460715</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460715.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4598</td><td>WEST BENGAL</td><td>KOLKATA</td><td>GURU NANAK INSTITUTE OF TECHNOLOGY</td><td>460801</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460801.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4599</td><td>WEST BENGAL</td><td>KOLKATA</td><td>ARMY PUBLIC SCHOOL BARRACKPORE</td><td>460802</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460802.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4600</td><td>WEST BENGAL</td><td>KOLKATA</td><td>BUDGE BUDGE INSTITUTE OF TECHNOLOGY</td><td>460803</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460803.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4601</td><td>WEST BENGAL</td><td>KOLKATA</td><td>KHALSA MODEL SENIOR SECONDARY SCHOOL</td><td>460804</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460804.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4602</td><td>WEST BENGAL</td><td>KOLKATA</td><td>DELHI PUBLIC SCHOOL</td><td>460805</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460805.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4603</td><td>WEST BENGAL</td><td>KOLKATA</td><td>RCC INSTITUTE OF INFORMATION TECHNOLOGY</td><td>460806</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460806.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4604</td><td>WEST BENGAL</td><td>KOLKATA</td><td>APEEJAY SCHOOL SALTLAKE</td><td>460807</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460807.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4605</td><td>WEST BENGAL</td><td>KOLKATA</td><td>TECHNO INTERNATIONAL NEWTOWN</td><td>460808</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460808.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4606</td><td>WEST BENGAL</td><td>KOLKATA</td><td>G B MEMORIAL INSTITUTION</td><td>460809</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460809.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4607</td><td>WEST BENGAL</td><td>KOLKATA</td><td>BIRLA BHARATI</td><td>460810</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460810.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4608</td><td>WEST BENGAL</td><td>KOLKATA</td><td>JADAVPUR VIDYAPITH</td><td>460811</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460811.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4609</td><td>WEST BENGAL</td><td>KOLKATA</td><td>APEEJAY SCHOOL</td><td>460812</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460812.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4610</td><td>WEST BENGAL</td><td>KOLKATA</td><td>PM SHRI KENDRIYA VIDYALAYA (OF) DUMDUM</td><td>460813</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460813.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4611</td><td>WEST BENGAL</td><td>KOLKATA</td><td>BARASAT INDIRA GANDHI MEMORIAL HIGH SCHOOL</td><td>460814</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460814.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4612</td><td>WEST BENGAL</td><td>KOLKATA</td><td>FUTURE CAMPUS SCHOOL S STN RD KOLKATA WB</td><td>460815</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460815.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4613</td><td>WEST BENGAL</td><td>KOLKATA</td><td>TECHNO INTERNATIONAL BATANAGAR</td><td>460816</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460816.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4614</td><td>WEST BENGAL</td><td>KOLKATA</td><td>AGARPARA SWAMI VIVEKANANDA ACADEMY KOLKATA WB</td><td>460817</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460817.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4615</td><td>WEST BENGAL</td><td>KALYANI</td><td>ORIENTAL PUBLIC SCHOOL</td><td>461313</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461313.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4616</td><td>WEST BENGAL</td><td>MALDA</td><td>NORTH POINT ENGLISH ACADEMY</td><td>461401</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461401.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4617</td><td>WEST BENGAL</td><td>MALDA</td><td>SISTER NIVEDITA PUBLIC SCHOOL</td><td>461402</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461402.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4618</td><td>WEST BENGAL</td><td>MALDA</td><td>THE ST. XAVIER''S SCHOOL MALDA</td><td>461403</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461403.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4619</td><td>WEST BENGAL</td><td>MALDA</td><td>ADARSHABANI TEACHER TRAINING COLLEGE</td><td>461404</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461404.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4620</td><td>WEST BENGAL</td><td>MALDA</td><td>THE HOLY ANGELS ENGLISH ACADEMY</td><td>461405</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461405.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4621</td><td>WEST BENGAL</td><td>MALDA</td><td>SWAMI VIVEKANANDA ACADEMY HIGH SCHOOL</td><td>461406</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461406.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4622</td><td>WEST BENGAL</td><td>MALDA</td><td>HOLY CHILD B.ED. COLLEGE</td><td>461407</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461407.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4623</td><td>WEST BENGAL</td><td>MALDA</td><td>DAVID HARE TEACHERS TRAINING COLLEGE</td><td>461408</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461408.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4624</td><td>WEST BENGAL</td><td>MALDA</td><td>BUDHIA HIGH MADRASAH (H.S.)</td><td>461409</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461409.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4625</td><td>WEST BENGAL</td><td>MALDA</td><td>UNIVERSAL COLLEGE OF EDUCATION</td><td>461410</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461410.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4626</td><td>WEST BENGAL</td><td>MALDA</td><td>MALDA UMESH CHANDRA BASTUHARA VIDYALAYA</td><td>461411</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461411.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4627</td><td>WEST BENGAL</td><td>MALDA</td><td>GHANI KHAN CHOUDHURY INSTITUTE OF ENGINEERING AND TECHNOLOGY</td><td>461412</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461412.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4628</td><td>WEST BENGAL</td><td>MALDA</td><td>GOUR MALDA COLLEGE OF EDUCATION</td><td>461413</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461413.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4629</td><td>WEST BENGAL</td><td>MALDA</td><td>KENDRIYA VIDYALAYA NHPC MALDA</td><td>461414</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461414.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4630</td><td>WEST BENGAL</td><td>MALDA</td><td>CHANCHAL B.ED. COLLEGE</td><td>461415</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461415.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4631</td><td>WEST BENGAL</td><td>MALDA</td><td>IMPS COLLEGE OF ENGINEERING &amp; TECHNOLOGY</td><td>461416</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461416.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4632</td><td>WEST BENGAL</td><td>MALDA</td><td>MALDA MODEL MADRASAH</td><td>461417</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461417.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4633</td><td>WEST BENGAL</td><td>MALDA</td><td>CHANCHAL TEACHERS TRAINING COLLEGE</td><td>461418</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461418.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4634</td><td>WEST BENGAL</td><td>MALDA</td><td>BHAGABANPUR HIGH MADRASAH</td><td>461419</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461419.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4635</td><td>WEST BENGAL</td><td>MALDA</td><td>KENDRIYA VIDYALAYA (NTPC) FARAKKA</td><td>461420</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461420.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4636</td><td>WEST BENGAL</td><td>MALDA</td><td>DELHI WORLD PUBLIC SCHOOL</td><td>461421</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461421.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4637</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>LMET INTERNATIONAL SCHOOL</td><td>461501</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461501.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4638</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>GUIDANCE FOUNDATION</td><td>461502</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461502.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4639</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>SARGACHI RAMAKRISHNA MISSION HIGH SCHOOL</td><td>461503</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461503.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4640</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>ST. STEPHENS ICONIC SCHOOL</td><td>461504</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461504.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4641</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>PRABHARANI PUBLIC SCHOOL</td><td>461505</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461505.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4642</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>GITARAM INSTITUTE OF MANAGEMENT</td><td>461506</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461506.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4643</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>BARWAN N.S HIGH SCHOOL</td><td>461507</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461507.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4644</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>MARY IMMACULATE SCHOOL</td><td>461508</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461508.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4645</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>BERHAMPORE POLYTECHNIC COLLEGE</td><td>461509</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461509.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4646</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>DELHI PUBLIC SCHOOL</td><td>461510</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461510.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4647</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>SARASWATI DEVI PUBLIC SCHOOL</td><td>461511</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461511.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4648</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>HAZI A.K.KHAN COLLEGE</td><td>461512</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461512.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4649</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>GOVT. COLLEGE OF ENGINEERING AND TEXTILE TECHNOLOGY, BERHAMPORE</td><td>461513</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461513.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4650</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>KENDRIYA VIDYALAYA</td><td>461514</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461514.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4651</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>MURSHIDABAD COLLEGE OF ENGINEERING &amp; TECHNOLOGY</td><td>461515</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461515.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4652</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>HAZI A.K.KHAN COLLEGE</td><td>461516</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461516.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4653</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>GOVT. COLLEGE OF ENGINEERING AND TEXTILE TECHNOLOGY, BERHAMPORE</td><td>461517</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461517.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4654</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>BERHAMPORE GIRLS'' MAHAKALI PATHSALA</td><td>461518</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461518.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4655</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>SURYA MEMORIAL ACADEMY</td><td>461519</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461519.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4656</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>JAGRITI PUBLIC SCHOOL</td><td>461520</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461520.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4657</td><td>WEST BENGAL</td><td>MURSHIDABAD</td><td>LMET INTERNATIONAL SCHOOL:DOMKAL</td><td>461521</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461521.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4658</td><td>WEST BENGAL</td><td>NADIA</td><td>TECHNO INDIA GROUP PUBLIC SCHOOL</td><td>461601</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461601.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4659</td><td>WEST BENGAL</td><td>NADIA</td><td>BHAKTIVEDANTA NATIONAL SCHOOL</td><td>461602</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461602.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4660</td><td>WEST BENGAL</td><td>NADIA</td><td>CHATTERJEE NOBLE SCHOOL</td><td>461603</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461603.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4661</td><td>WEST BENGAL</td><td>NADIA</td><td>KENDRIYA VIDYALAYA</td><td>461604</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461604.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4662</td><td>WEST BENGAL</td><td>NADIA</td><td>KRISHNAGAR PUBLIC SCHOOL</td><td>461605</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461605.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4663</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>HALDIA INSTITUTE OF TECHNOLOGY</td><td>461701</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461701.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4664</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>VIVEKANAND MISSION HIGH SCHOOL</td><td>461702</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461702.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4665</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>MOUNT LITERA ZEE SCHOOL CONTAI</td><td>461703</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461703.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4666</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>BANIMANDIR RURAL PUB SCHOOL</td><td>461704</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461704.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4667</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>THE ROYAL INTERNATIONAL SCHOOL</td><td>461705</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461705.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4668</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>ZILLA PUBLIC SCHOOL</td><td>461706</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461706.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4669</td><td>WEST BENGAL</td><td>PURBA MEDINIPUR</td><td>DAV PUBLIC SCHOOL HALDIA EAST MEDINIPUR WB</td><td>461707</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461707.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4670</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>BUDGE BUDGE INSTITUTE OF TECHNOLOGY</td><td>461801</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461801.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4671</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>SONARPUR VIDYAPITH</td><td>461802</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461802.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4672</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>BARUIPUR HIGH SCHOOL</td><td>461803</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461803.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4673</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>GHASIARA VIDYAPITH (HS) GHASIARA</td><td>461804</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461804.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4674</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>KALIKAPUR RAMKAMAL VIDYAPITH(H.S)</td><td>461805</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461805.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4675</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>SWAMI VIVEKANANDA INSTITUTE OF SCIENCE &amp; TECHNOLOGY</td><td>461806</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461806.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4676</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>ST. MONTFORTS SENIOR SECONDARY SCHOOL</td><td>461807</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461807.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4677</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>THE SUMMIT SCHOOL</td><td>461808</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461808.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4678</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>FUTURE GEMS ACADEMY</td><td>461809</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461809.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4679</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>VIVEKANANDA MISSION SCHOOL</td><td>461810</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461810.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4680</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>JYOTIRMOY SCHOOL OF LAW</td><td>461811</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461811.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4681</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>DIVYA ARYA VIDYA PUBLIC SCHOOL</td><td>461812</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461812.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4682</td><td>WEST BENGAL</td><td>SOUTH 24 PARGANAS</td><td>JYOTIRMOY PUBLIC SCHOOL</td><td>461813</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461813.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4683</td><td>WEST BENGAL</td><td>SURI</td><td>GITANJALI PUBLIC SCHOOL</td><td>461901</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461901.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4684</td><td>WEST BENGAL</td><td>SURI</td><td>U. P. PUBLIC SCHOOL</td><td>461902</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461902.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4685</td><td>WEST BENGAL</td><td>SURI</td><td>TECHNO INDIA GROUP PUBLIC SCHOOL BOLPUR</td><td>461903</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461903.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4686</td><td>WEST BENGAL</td><td>SURI</td><td>BIRBHUM ZILLA SCHOOL</td><td>461904</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461904.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4687</td><td>WEST BENGAL</td><td>SURI</td><td>PM SHRI KENDRIYA VIDYALAYA BIRBHUM</td><td>461905</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461905.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4688</td><td>WEST BENGAL</td><td>BALURGHAT</td><td>BALURGHAT HIGH SCHOOL</td><td>462001</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/462001.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4689</td><td>WEST BENGAL</td><td>BALURGHAT</td><td>BALURGHAT GIRLS'' HIGH SCHOOL</td><td>462002</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/462002.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4690</td><td>WEST BENGAL</td><td>BALURGHAT</td><td>ATREYEE DAV PUBLIC SCHOOL, BALURGHAT</td><td>462003</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/462003.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4691</td><td>WEST BENGAL</td><td>BALURGHAT</td><td>TECHNO INDIA GROUP PUBLIC SCHOOL</td><td>462004</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/462004.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4692</td><td>WEST BENGAL</td><td>KOLKATA</td><td>DAV PUBLIC SCHOOL DIAMOND HARBOUR RD KOLKATA WB</td><td>460818</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460818.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4693</td><td>WEST BENGAL</td><td>KOLKATA</td><td>INDIRA GANDHI MEMORIAL HIGH SCHOOL</td><td>460819</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460819.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4694</td><td>WEST BENGAL</td><td>KOLKATA</td><td>SAINI INTERNATIONAL SCHOOL MAHESHTALA</td><td>460820</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460820.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4695</td><td>WEST BENGAL</td><td>KOLKATA</td><td>ABHINAV BHARATI HIGH SCHOOL</td><td>460821</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460821.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4696</td><td>WEST BENGAL</td><td>KOLKATA</td><td>MEGHNAD SAHA INSTITUTE OF TECHNOLOGY</td><td>460822</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460822.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4697</td><td>WEST BENGAL</td><td>KOLKATA</td><td>HARINAVI DVAS HIGH SCHOOL</td><td>460823</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460823.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4698</td><td>WEST BENGAL</td><td>KOLKATA</td><td>PM SHRI KENDRIYA VIDYALAYA COSSIPORE</td><td>460824</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460824.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4699</td><td>WEST BENGAL</td><td>KOLKATA</td><td>MAHADEVI BIRLA WORLD ACADEMY</td><td>460825</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460825.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4700</td><td>WEST BENGAL</td><td>KOLKATA</td><td>S S PUBLIC SCHOOL M B ROAD KOLKATA WB</td><td>460826</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460826.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4701</td><td>WEST BENGAL</td><td>KOLKATA</td><td>LABAN HRAD VIDYAPITH</td><td>460827</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460827.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4702</td><td>WEST BENGAL</td><td>KOLKATA</td><td>UMESCHANDRA COLLEGE</td><td>460828</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460828.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4703</td><td>WEST BENGAL</td><td>KOLKATA</td><td>PM SHRI KENDRIYA VIDYALAYA NO.I ISHAPORE</td><td>460829</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460829.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4704</td><td>WEST BENGAL</td><td>KOLKATA</td><td>LAKSHMIPAT SINGHANIA ACADEMY</td><td>460830</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460830.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4705</td><td>WEST BENGAL</td><td>KOLKATA</td><td>INDUS VALLEY WORLD SCHOOL</td><td>460831</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460831.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4706</td><td>WEST BENGAL</td><td>KOLKATA</td><td>SISTER NIVEDITA UNIVERSITY</td><td>460832</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460832.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4707</td><td>WEST BENGAL</td><td>KOLKATA</td><td>GREENPARK SIKSHASADAN HIGH SCHOOL(HS)</td><td>460833</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460833.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4708</td><td>WEST BENGAL</td><td>KOLKATA</td><td>GARGI MEMORIAL INSTITUTE OF TECHNOLOGY</td><td>460834</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460834.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4709</td><td>WEST BENGAL</td><td>KOLKATA</td><td>UPASANA ACADEMY ROYPUR MAHESHTALA KOLKATA WB</td><td>460835</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460835.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4710</td><td>WEST BENGAL</td><td>KOLKATA</td><td>METROPOLITAN INSTITUTION MAIN FOR GIRLS</td><td>460836</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460836.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4711</td><td>WEST BENGAL</td><td>KOLKATA</td><td>THE FUTURE SCHOLARS ACADEMY</td><td>460837</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460837.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4712</td><td>WEST BENGAL</td><td>KOLKATA</td><td>GARIA HARIMATI DEVI UCHCHA BALIKA VIDYALAYA</td><td>460838</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460838.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4713</td><td>WEST BENGAL</td><td>KOLKATA</td><td>BHAVANS GANGABUX KANORIA VIDYAMANDIR</td><td>460839</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460839.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4714</td><td>WEST BENGAL</td><td>SILIGURI</td><td>DELHI PUBLIC SCHOOL SILIGURI</td><td>460901</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460901.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4715</td><td>WEST BENGAL</td><td>SILIGURI</td><td>D.A.V SCHOOL</td><td>460902</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460902.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4716</td><td>WEST BENGAL</td><td>SILIGURI</td><td>ARMY PUBLIC SCHOOL SUKNA</td><td>460903</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460903.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4717</td><td>WEST BENGAL</td><td>SILIGURI</td><td>TECHNO INDIA GROUP PUBLIC SCHOOL SLG</td><td>460904</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460904.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4718</td><td>WEST BENGAL</td><td>SILIGURI</td><td>HINDI BALIKA VIDYAPITH</td><td>460905</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460905.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4719</td><td>WEST BENGAL</td><td>SILIGURI</td><td>ARMY PUBLIC SCHOOL BENGDUBI</td><td>460906</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460906.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4720</td><td>WEST BENGAL</td><td>SILIGURI</td><td>MODI PUBLIC SCHOOL SILIGURI</td><td>460907</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460907.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4721</td><td>WEST BENGAL</td><td>SILIGURI</td><td>ROYAL ACADEMY</td><td>460908</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460908.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4722</td><td>WEST BENGAL</td><td>SILIGURI</td><td>SHRI KRISHNA PRANAMI VIDYA NIKETAN</td><td>460909</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460909.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4723</td><td>WEST BENGAL</td><td>SILIGURI</td><td>SILIGURI MODEL HIGH SCHOOL</td><td>460910</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/460910.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4724</td><td>WEST BENGAL</td><td>BANKURA</td><td>BANKURA UNIVERSITY</td><td>461001</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461001.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4725</td><td>WEST BENGAL</td><td>BANKURA</td><td>MDB DAV PUB SCHOOL</td><td>461002</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461002.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4726</td><td>WEST BENGAL</td><td>BANKURA</td><td>SARASWATI DEVI INTL SCHOOL</td><td>461003</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461003.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4727</td><td>WEST BENGAL</td><td>BANKURA</td><td>BANKURA UNNAYANI INSTITUTE OF ENGINEERING</td><td>461004</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461004.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4728</td><td>WEST BENGAL</td><td>BANKURA</td><td>BANKURA ZILLA SCHOOL</td><td>461005</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461005.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4729</td><td>WEST BENGAL</td><td>BANKURA</td><td>SHAMAYITA CONV SCHOOL</td><td>461006</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461006.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4730</td><td>WEST BENGAL</td><td>BANKURA</td><td>BANKUR BANGA VIDYALAY</td><td>461007</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461007.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4731</td><td>WEST BENGAL</td><td>BANKURA</td><td>WEST POINT SCHOOL</td><td>461008</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461008.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4732</td><td>WEST BENGAL</td><td>BANKURA</td><td>SATYA NARAYAN ACADEMY</td><td>461009</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461009.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4733</td><td>WEST BENGAL</td><td>BANKURA</td><td>JAWAHAR NAVODAYA VIDYALAYA</td><td>461010</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461010.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4734</td><td>WEST BENGAL</td><td>BANKURA</td><td>DAV PUBLIC SCHOOL</td><td>461011</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461011.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4735</td><td>WEST BENGAL</td><td>DARJEELING</td><td>CENTRAL SCHOOL FOR TIBETANS</td><td>461101</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461101.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4736</td><td>WEST BENGAL</td><td>JALPAIGURI</td><td>ARMY PUBLIC SCHOOL BINNAGURI</td><td>461201</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461201.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4737</td><td>WEST BENGAL</td><td>JALPAIGURI</td><td>ASHALATA BASU VIDYALAYA</td><td>461202</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461202.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4738</td><td>WEST BENGAL</td><td>JALPAIGURI</td><td>TECHNO INDIA GROUP PUBLIC SCHOOL</td><td>461203</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461203.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4739</td><td>WEST BENGAL</td><td>KALYANI</td><td>SATISH CHANDRA MEMORIAL SCHOOL</td><td>461301</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461301.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4740</td><td>WEST BENGAL</td><td>KALYANI</td><td>KALYANI GOVERNMENT ENGINEERING COLLEGE</td><td>461302</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461302.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4741</td><td>WEST BENGAL</td><td>KALYANI</td><td>KALYANI CENTRAL MODEL SCHOOL</td><td>461303</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461303.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4742</td><td>WEST BENGAL</td><td>KALYANI</td><td>PANNALAL INSTITUTION</td><td>461304</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461304.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4743</td><td>WEST BENGAL</td><td>KALYANI</td><td>JRS PUBLIC SCHOOL</td><td>461305</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461305.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4744</td><td>WEST BENGAL</td><td>KALYANI</td><td>GHOSHPARA SRASWATI TRUST ESTATE VIDYAPITH (H.S)</td><td>461306</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461306.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4745</td><td>WEST BENGAL</td><td>KALYANI</td><td>KALYANI UNIVERSITY EXPERIMENTAL HIGH SCHOOL</td><td>461307</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461307.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4746</td><td>WEST BENGAL</td><td>KALYANI</td><td>DELHI WORLD PUBLIC SCHOOL KALYANI</td><td>461308</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461308.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4747</td><td>WEST BENGAL</td><td>KALYANI</td><td>KALYANI SHIKSHAYATAN</td><td>461309</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461309.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4748</td><td>WEST BENGAL</td><td>KALYANI</td><td>KATAGUNJ GOKULPUR ADARSHA SHIKSHAYATAN HIGH SCHOOL</td><td>461310</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461310.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="odd"><td class="sorting_1">4749</td><td>WEST BENGAL</td><td>KALYANI</td><td>GARDEN HIGH SCHOOL</td><td>461311</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461311.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr><tr class="even"><td class="sorting_1">4750</td><td>WEST BENGAL</td><td>KALYANI</td><td>CHAKDAHA MODEL SCHOOL</td><td>461312</td><td><a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/461312.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a></td></tr></tbody>                
+            </table><div id="scorecardData_processing" class="dataTables_processing card" style="display: none;">Processing...</div></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="scorecardData_info" role="status" aria-live="polite">Showing 4,501 to 4,750 of 4,750 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="scorecardData_paginate"><ul class="pagination"><li class="paginate_button page-item previous" id="scorecardData_previous"><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item "><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item disabled" id="scorecardData_ellipsis"><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="2" tabindex="0" class="page-link">…</a></li><li class="paginate_button page-item "><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="3" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item "><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="4" tabindex="0" class="page-link">7</a></li><li class="paginate_button page-item "><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="5" tabindex="0" class="page-link">8</a></li><li class="paginate_button page-item "><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="6" tabindex="0" class="page-link">9</a></li><li class="paginate_button page-item active"><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="7" tabindex="0" class="page-link">10</a></li><li class="paginate_button page-item next disabled" id="scorecardData_next"><a href="https://neet.ntaonline.in/frontend/web/common-scorecard/index#" aria-controls="scorecardData" data-dt-idx="8" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+        </div>
+        <!-- tabs end -->  
+        
+    </div>    
+</div>
+<script src="./Common_Scorecard_10_files/dataTables.min.js"></script>
+<script>
+//new DataTable('#example');
+$(document).ready(function(){
+
+   // $('#scorecardData').DataTable();
+   $( "#GetfilterState" ).on("change", function(){
+        var StateName = $('#GetfilterState').val();
+        $.ajax({
+            url: 'https://neet.ntaonline.in/frontend/web/common-scorecard/getcitydata',
+            method: 'POST', // or 'POST', 'PUT', 'DELETE', etc.
+            //dataType: 'json', // expected data type from the server
+            data: {
+                StateName: StateName
+            },
+            success: function(response) {
+                // Handle successful response
+                $("#GetfilterCity").html(response);
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.error('AJAX Error: ' + status + ' - ' + error);
+            }
+        });
+        
+   });
+
+    $('#scorecardData').DataTable({
+        "processing": true,
+        "serverSide": true,
+        "ajax": {
+            "url": "https://neet.ntaonline.in/frontend/web/common-scorecard/getdataresult", // URL to your server-side script
+            //"type": "POST"
+        }, 
+        "lengthMenu": [[10, 25, 50,100, 500], [10, 25, 50,100, 500]], 
+        "columns": [
+            { "data": "SrNo","width": "6%" },
+            { "data": "CENT_STATE","width": "20%" },
+            { "data": "CENT_CITY","width": "10%" },
+            { "data": "CENT_NAME","width": "10%" },
+            { "data": "CENTNO","width": "10%" },       
+            { 
+                "data": null,
+                "render": function(data, type, row) {                    
+                    return '<a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/'+row.CENTNO+'.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a>'; 
+                },"width": "17%"
+            }
+        ],
+        language: {
+            searchPlaceholder: 'Search by any key'
+        }
+    });
+    $( ".filterByStatus" ).on("change", function(){
+    var GetfilterState = $("#GetfilterState").val();
+    var GetfilterCity = $("#GetfilterCity").val(); 
+        if(GetfilterCity=='' || GetfilterCity==null){
+            $('#GetfilterState').val('');
+        }  
+
+        $('#scorecardData').dataTable().fnDestroy();
+        $('#scorecardData').DataTable({
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "url": "https://neet.ntaonline.in/frontend/web/common-scorecard/getdataresult?GetfilterState="+GetfilterState+"&& GetfilterCity="+GetfilterCity, // URL to your server-side script
+                //"type": "POST"
+            }, 
+            "lengthMenu": [[10, 25, 50,100, 500], [10, 25, 50,100, 500]], 
+            "columns": [
+                { "data": "SrNo","width": "6%" },
+                { "data": "CENT_STATE","width": "20%" },
+                { "data": "CENT_CITY","width": "10%" },
+                { "data": "CENT_NAME","width": "10%" },
+                { "data": "CENTNO","width": "10%" },          
+                { 
+                    "data": null,
+                    "render": function(data, type, row) {                    
+                        return '<a target="_blank" href="https://neetfs.ntaonline.in/NEET_2024_Result/'+row.CENTNO+'.pdf"><button type="button" class="btn btn-sm btn-warning">View Details</button></a>'; 
+                    },"width": "17%"
+                }
+            ],
+            language: {
+                searchPlaceholder: 'Search by any key'
+            }
+        });
+    });
+
+});
+$('body').bind('cut copy', function(e) {
+    e.preventDefault();
+});
+</script>
+
+
+        </div>
+        <!-- content-body -->
+        
+    
+    <!-- <div class="footer row">
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="#"></a>
+        </div>
+    </div> -->
+
+  <!-- Modal Aadhaar Reverify Code-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Please Fill Aadhaar Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form" action="https://neet.ntaonline.in/frontend/web/common-scorecard/index" method="post">
+<input type="hidden" name="_csrf-frontend" value="ohH4noVncmZO_PFOfXP5FhVCSYAelinUxRxE46P582vEWons6wY7EySYxBoUK4AhXxgI2inXcJL2ZCCNkI-UAw==">                    <span id="aadhaarlogin">
+                        <div class="row mb-3 AadhaarNumberhide">
+                            <label class="col-sm-4 col-form-label text-end">Aadhaar Number<span class="astric-sign">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="AadhaarNumber" placeholder="Enter Aadhaar Number" class="form-control form-control-sm" id="AadhaarNumber" minlength="12" maxlength="12" onkeypress="return blockSpecialChar(event,&#39;numeric&#39;)" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="row mb-3" id="divMessage" style="display:none;">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5">
+                                <span id="spnResult" style="color: green; font-weight: bold; font-size: 17px;"></span>
+                            </div>
+                        </div>
+                        <div class="row mb-3 AadhaarNumberhide">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5">
+                                <span id="btnGenerateOTP" class="btn btn-sm btn-warning" onclick="onGenerateOTPRe()">Generate OTP</span>
+                            </div>
+                        </div>
+                        <div class="row mb-3" style="display:none;" id="otpdiv">
+                            <label class="col-sm-4 col-form-label text-end empity-cell">OTP<span class="astric-sign">*</span></label>
+                            <div class="col-sm-5">
+                                <input type="text" name="Otp" placeholder="Enter OTP" class="form-control form-control-sm" id="Otp" minlength="6" maxlength="6" onkeypress="return blockSpecialChar(event,&#39;numeric&#39;)" autocomplete="off">
+
+                                <label class="control-label" style="text-align:left;margin-left:5px;font-size:14px;font-weight:bold">Please validate the OTP within 10 minutes of receiving it</label>
+                            </div>
+                            <label class="col-sm-4 col-form-label text-end empity-cell">&nbsp;</label>
+                            <div class="col-sm-5"><br>
+                                <span id="btnValidateOTP" class="btn btn-sm btn-warning" disabled="" onclick="onValidateOtpRe()">Validate OTP</span>
+                            </div>
+                        </div>
+                    </span>
+                    </form>                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <input type="hidden" name="ApplicationNo" id="ApplicationNo" value="">
+   <input type="hidden" name="ReferenceID" id="ReferenceID" value="">
+    <script>
+        $(document).ready(function() {
+             if ($("#ReferenceID").val() == '0') {
+                $('#exampleModal').modal('show');   
+                setInterval(function() {$('#exampleModal').modal('show');}, 10000);            
+            }
+            
+        });
+        $(".close").on('click', function() {
+            $("#exampleModal").modal('hide');
+        });
+        var otpTxnId = null;
+
+        function onGenerateOTPRe() {
+
+            var aadhaarNumber = $('#AadhaarNumber').val();
+            if (aadhaarNumber.trim().length !== 12) {
+                alert("Please enter valid aadhaar number")
+                $('#AadhaarNumber').focus();
+                return;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/frontend/web/aadhaarreverify/generateotp",
+                data: {
+                    AADHAARNUMBER: aadhaarNumber
+                },
+                "beforeSend": function(response) {
+                    SimpleLoading.start();
+                },
+                success: function(data) {
+                    var resp = JSON.parse(data);
+                    SimpleLoading.stop();
+                    if (resp.error) {
+                        $('#spnResult').html(resp.errorMessage);
+                        $('#spnResult').css("color", "red");
+                        $('#divMessage').show();
+                        $("#otpdiv").hide();
+                        $(".AadhaarNumberhide").show();
+                        return false;
+                    }
+
+                    otpTxnId = resp.otpTxnId;
+                    // console.log(otpTxnId);
+                    var message = "OTP send successfully";
+                    var mobileAdded = false;
+                    if (resp.maskedMobile !== undefined && resp.maskedMobile !== "" && resp.maskedMobile !== "NA" && resp.maskedMobile !== null) {
+                        message = message + " to " + resp.maskedMobile;
+                        mobileAdded = true;
+                    }
+
+                    if (resp.maskedEmail !== undefined && resp.maskedEmail !== "" && resp.maskedEmail !== null) {
+                        if (mobileAdded) {
+                            message = message + " and";
+                        } else {
+                            message = message + " to";
+                        }
+
+                        message = message + " " + resp.maskedEmail;
+                    }
+
+
+                    $('#spnResult').html(message);
+                    $('#spnResult').css("color", "green");
+                    $('#divMessage').show();
+                    $("#otpdiv").show();
+                    $(".AadhaarNumberhide").hide();
+                    $('#btnGenerateOTP').attr("disabled", true);
+                    $('#btnValidateOTP').removeAttr("disabled");
+                    $('#btnCancel').removeAttr("disabled");
+                    $('#Otp').removeAttr("disabled");
+                },
+                error: function(xhr, textStatus, error) {
+                    $('#spnResult').html(error.message);
+                    $('#spnResult').css("color", "red");
+                    $('#divMessage').show();
+                    return false;
+                }
+            });
+        }
+
+        function onValidateOtpRe() {
+            var aadhaarNumber = $('#AadhaarNumber').val();
+            var otpValue = $('#Otp').val();
+            if (otpValue == '' || otpValue.trim().length !== 6) {
+                $('#Otp').focus();
+                return false;
+            }
+            $.ajax({
+                type: 'POST',
+                url: "/frontend/web/aadhaarreverify/validateotp",
+                data: {
+                    AADHAARNUMBER: aadhaarNumber,
+                    OTPVALUE: otpValue,
+                    OTPTXNID: otpTxnId,
+                },
+                "beforeSend": function(response) {
+                    SimpleLoading.start();
+                },
+                success: function(data) {
+                    var resp = JSON.parse(data);
+                    console.log(resp);
+                    if (resp.error) {
+                        $('#spnResult').html(resp.errorMessage);
+                        $('#spnResult').css("color", "red");
+                        $('#divMessage').show();
+                        SimpleLoading.stop();
+                        return false;
+                    }
+                },
+                error: function(xhr, textStatus, error) {
+                    $('#spnResult').html(error.message);
+                    $('#spnResult').css("color", "red");
+                    $('#divMessage').show();
+                    SimpleLoading.stop();
+                    return false;
+                }
+            });
+        }
+    </script>
+
+    <script>
+       $(document).ready(function() {
+           const channel = new BroadcastChannel('tab');
+           channel.postMessage('another-tab');
+           channel.addEventListener('message', (msg) => {
+               if (msg.data === 'another-tab') {
+                   // message received from 2nd tab
+                   alert('Cannot open multiple instances.You are logged out!');
+                   $.ajax({
+                       type: "post",
+                       url: '',
+                       data: {},
+                       cache: false,
+                       success: function(data) {
+
+                       }
+                   });
+                   window.location.href = "";
+               }
+           });
+       });
+
+        		document.onkeydown = function(e) {
+        		  if(event.keyCode == 123) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		  if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        			 return false;
+        		  }
+        		}
+
+        		document.addEventListener('contextmenu', function(e){
+        		e.preventDefault();
+        		});
+    </script>
+    <script src="./Common_Scorecard_10_files/jquery.js"></script>
+<script src="./Common_Scorecard_10_files/simple-loading.min.js"></script>
+<script src="./Common_Scorecard_10_files/yii.js"></script>
+<script src="./Common_Scorecard_10_files/demo.js"></script>
+<script src="./Common_Scorecard_10_files/jquery.smartWizard.min.js"></script>
+<script src="./Common_Scorecard_10_files/jquery.image-popup.js"></script>
+<script src="./Common_Scorecard_10_files/bootstrap.bundle.min.js"></script>
+<script src="./Common_Scorecard_10_files/feather.min.js"></script>
+<script src="./Common_Scorecard_10_files/perfect-scrollbar.min.js"></script>
+<script src="./Common_Scorecard_10_files/script.js"></script>
+<script src="./Common_Scorecard_10_files/jquery.dataTables.min.js"></script>
+<script src="./Common_Scorecard_10_files/dataTables.bootstrap4.min.js"></script>
+<script src="./Common_Scorecard_10_files/dataTables.responsive.min.js"></script>
+<script src="./Common_Scorecard_10_files/responsive.bootstrap4.min.js"></script>
+<script src="./Common_Scorecard_10_files/dataTables.buttons.min.js"></script>
+<script src="./Common_Scorecard_10_files/buttons.bootstrap4.min.js"></script>
+<script src="./Common_Scorecard_10_files/comman.js"></script>
+<script src="./Common_Scorecard_10_files/bootstrap.bundle(1).min.js"></script>
+<script src="./Common_Scorecard_10_files/jquery.multiselect.js"></script>
+<script src="./Common_Scorecard_10_files/sweetalert2.all.min.js"></script>
+<script src="./Common_Scorecard_10_files/yii.activeForm.js"></script>
+<script>jQuery(function ($) {
+jQuery('#contact-form').yiiActiveForm([], {"errorSummary":".alert.alert-danger","errorCssClass":"is-invalid","successCssClass":"is-valid","validationStateOn":"input"});
+
+        $(document).ready(function () {
+            $("#refresh_captcha").click(function (event) {
+                event.preventDefault();
+                $(this).parent().children('img').click();
+                $("#candidate-verifycode").val("");
+                $("#candidate-verifycode").removeClass("is-valid")
+            })
+        });
+
+        $(document).ready(function (){
+            $(".form-control").addClass("form-control-sm");
+            $("#refresh_captcha").click();
+        });
+
+        $(document).ready(function () {
+            $(".userActivityBtn").click(function (event) {
+                console.log("test-main.php");
+                //event.preventDefault()
+              var currentURL   = $(location).attr("href");
+                $.ajax({
+                  url: "/frontend/web/useracitivity/useract" ,
+                  type: "post",
+                  data: {
+                        moduleName: $(this).attr("data-modulename"),  
+                        activityName: $(this).attr("data-activityname"), 
+                        url: currentURL,  
+                        _csrf : "<?=Yii::$app->request->getCsrfToken()?>"
+                      },
+                  success: function (data) {
+                     console.log(data);
+                  }
+              });
+            })
+          });
+
+      
+});</script>
+    
+
+
+<div id="edwinhaq_simple_loading" class="simple-loading simple-loading-default" style="display: none;"></div><webchatgpt-custom-element-445de1e7-b220-4957-aa4d-f7e808d51a5c id="webchatgpt-snackbar" style="color: rgb(255, 255, 255);"><template shadowrootmode="open"><style id="webchatgpt-snackbar-container-emotion-style"></style><div id="webchatgpt-snackbar-container" style="z-index: 2147483647;"></div></template></webchatgpt-custom-element-445de1e7-b220-4957-aa4d-f7e808d51a5c></body></html>

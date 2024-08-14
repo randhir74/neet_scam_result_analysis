@@ -1,0 +1,6 @@
+requests
+pandas
+pypdf
+ipywidgets
+pyarrow
+fastparquet
